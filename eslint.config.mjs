@@ -20,6 +20,7 @@ const eslintConfig = [
           "varsIgnorePattern": "^_", // Ignore unused variables prefixed with `_`
         }
       ],
+      "react/no-unescaped-entities": "off",
     },
   },
 ];
