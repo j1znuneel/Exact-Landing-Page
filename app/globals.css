@@ -10,18 +10,12 @@ body {
 @media (min-width: 1024px) {  /* Apply styles only on screens 1024px and above */
   section {
     height: 100vh;
-    scroll-snap-align: center;
     display: flex;
     align-items: center;
   }
 
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
   #cta{
     max-height: calc(100vh-50px)!important;
-    scroll-snap-align: center;
     display: flex;
     align-items: center;
   }

@@ -56,7 +56,7 @@ const featureText: FeatureText[] = [
 
 const Feature = () => {
   return (
-    <Section id="features" className="border-b max-h-max">
+    <Section id="features" className="mt-32 border-b max-h-max">
       <Container className="not-prose">
         <div className="flex flex-col gap-6">
           <h2 className="text-5xl text-center !my-0">Features</h2>
