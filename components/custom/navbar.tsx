@@ -23,7 +23,7 @@ import ModeToggle from "./theme-toggle";
 export function NavBar() {
   return (
     <div className="flex items-center min-w-full w-full fixed justify-center p-2 z-[50] mt-[2rem]">
-      <div className="flex justify-between md:w-[990px] w-[95%] border dark:border-zinc-900 dark:bg-[#3B1C32]  relative   backdrop-blur bg-opacity-50 z-9 bg-gray-100 border-white border-opacity-20 rounded-xl p-2  overflow-visible">
+      <div className="flex justify-between md:w-[990px] w-[95%] border dark:border-zinc-900 dark:bg-[#3B1C32]/50 relative backdrop-blur bg-opacity-50 dark:bg-opacity-30 z-9 bg-gray-100 border-white border-opacity-20 rounded-xl p-2 overflow-visible">
         <Dialog>
           <SheetTrigger className="min-[825px]:hidden p-2 transition">
             <MenuIcon />
