@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { motion } from "framer-motion";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/custom/navbar";
@@ -23,7 +24,7 @@ export default function RootLayout({
         className={`${inter.className} bg-gradient-to-b from-[#000000] to-[#000000] transition-all duration-1000`}
       >
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-1000"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${bg.src})`,
             maskImage:

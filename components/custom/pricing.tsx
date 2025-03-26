@@ -1,9 +1,9 @@
 import Balancer from "react-wrap-balancer";
-import { Container, Section } from "../craft";
-import { Button } from "../ui/button";
-import { CircleCheck, Sparkles } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { Button } from "@/components/ui/button";
+import { CircleCheck } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { Container, Section } from "../craft";
 
 interface PricingCardProps {
   title: "Basic" | "Standard" | "Pro";
@@ -15,7 +15,7 @@ interface PricingCardProps {
   isPopular?: boolean;
 }
 
-// Enhanced pricing data
+// Dummy pricing data
 const pricingData: PricingCardProps[] = [
   {
     title: "Basic",
@@ -56,26 +56,14 @@ const pricingData: PricingCardProps[] = [
 
 const Pricing = () => {
   return (
-    <Section id="pricing" className="relative overflow-visible">
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 opacity-30 dark:opacity-40">
-        <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-br from-purple-500/30 to-blue-500/30 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-gradient-to-tl from-blue-500/30 to-emerald-500/30 blur-3xl" />
-      </div>
+    <Section>
+      <Container className="flex flex-col items-center gap-4 text-center">
+        <h2 className="!my-0">Pricing</h2>
+        <p className="text-lg opacity-70 md:text-2xl">
+          <Balancer>Select the plan that best suits your needs.</Balancer>
+        </p>
 
-      <Container className="relative flex flex-col items-center gap-4 text-center">
-        <div className="space-y-4 mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400">
-            Simple Pricing
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            <Balancer>
-              Choose the perfect plan for your needs. No hidden fees.
-            </Balancer>
-          </p>
-        </div>
-
-        <div className="not-prose mt-4 grid grid-cols-1 gap-8 min-[850px]:grid-cols-3">
+        <div className="not-prose mt-10 grid grid-cols-1 gap-6 min-[850px]:grid-cols-3">
           {pricingData.map((plan, index) => (
             <PricingCard plan={plan} key={index} />
           ))}
@@ -84,62 +72,45 @@ const Pricing = () => {
     </Section>
   );
 };
-
 const PricingCard = ({ plan }: { plan: PricingCardProps }) => {
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border-2 ${
+      className={`relative flex flex-col rounded-lg border p-6 transition-all duration-200 ${
         plan.isPopular
-          ? "border-purple-500 dark:border-purple-400 shadow-lg shadow-purple-500/20"
-          : "border-border"
-      } bg-card p-8 transition-transform duration-300 hover:scale-105`}
+          ? "z-10 scale-105 border-primary dark:border-gray-300 shadow-lg"
+          : ""
+      }`}
     >
-      {plan.isPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <Badge className="bg-purple-500 text-white dark:bg-purple-400 px-4 py-1 rounded-full flex items-center gap-1">
-            <Sparkles className="w-4 h-4" />
-            Most Popular
-          </Badge>
-        </div>
-      )}
-
       <div className="text-center">
-        <Badge
-          variant={plan.isPopular ? "secondary" : "outline"}
-          className="text-sm font-medium"
-        >
+        <Badge variant={plan.isPopular ? "default" : "outline"}>
           {plan.title}
+          {plan.isPopular && (
+            <span className="ml-2 text-xs font-normal">★ Popular</span>
+          )}
         </Badge>
-
-        <div className="mt-6 flex items-baseline justify-center gap-1">
-          <span className="text-4xl font-bold">{plan.price.split("/")[0]}</span>
-          <span className="text-muted-foreground">/month</span>
-        </div>
-
-        <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
+        <h4 className="mb-2 mt-4 text-2xl font-bold text-primary">
+          {plan.price}
+        </h4>
+        <p className="text-sm opacity-70">{plan.description}</p>
       </div>
 
-      <div className="my-8 border-t border-border"></div>
+      <div className="my-4 border-t"></div>
 
-      <ul className="space-y-4 text-left mb-8">
+      <ul className="space-y-3 text-left">
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-center text-sm">
-            <CircleCheck className="mr-3 h-5 w-5 text-green-500 dark:text-green-400" />
-            <span>{feature}</span>
+          <li key={i} className="flex items-center text-sm opacity-70">
+            <CircleCheck className="mr-2 h-4 w-4 text-primary" />
+            {feature}
           </li>
         ))}
       </ul>
 
-      <div className="mt-auto">
-        <Link href={plan.href} target="_blank" className="block w-full">
+      <div className="mt-auto pt-6">
+        <Link href={plan.href} target="_blank">
           <Button
-            size="lg"
+            size={"sm"}
+            className="w-full"
             variant={plan.isPopular ? "default" : "outline"}
-            className={`w-full text-base font-medium ${
-              plan.isPopular
-                ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
-                : ""
-            }`}
           >
             {plan.cta}
           </Button>

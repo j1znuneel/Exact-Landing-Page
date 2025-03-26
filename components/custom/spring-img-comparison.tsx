@@ -8,7 +8,7 @@ import {
   ImageComparisonSlider,
   ImageComparisonContext,
 } from "@/components/ui/image-comparison";
-import { Section } from "../craft";
+import { Container, Section } from "../craft";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,17 +16,17 @@ import { Badge } from "@/components/ui/badge";
 export function ImageComparisonComponent() {
   return (
     <Section id="image-comparison" className="py-12 mx-5">
-      <div className=" mx-auto">
+      <Container>
+        <h2 className="text-3xl md:text-5xl tracking-tight text-center mb-16">
+          Elevate Your Assessments with{" "}
+          <span className="text-slate-600 dark:text-slate-400 font-bold">EXACT</span>
+        </h2>
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 rounded-xl">
           {/* Left Side - Text Content */}
           <div className="max-w-lg text-left md:text-left ">
             {/* <Badge className="mb-4 bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
               Professional Quality
             </Badge> */}
-            <h2 className="text-3xl md:text-5xl mb-4 tracking-tight">
-              Elevate Your Assessments with{" "}
-              <span className="text-slate-600 dark:text-slate-400">EXACT</span>
-            </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               Experience the remarkable difference in quality and
               professionalism. Our LaTeX-based formatting engine transforms
@@ -80,7 +80,7 @@ export function ImageComparisonComponent() {
             </ImageComparison>
           </div>
         </div>
-      </div>
+      </Container>
     </Section>
   );
 }
