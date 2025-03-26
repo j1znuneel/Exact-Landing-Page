@@ -18,7 +18,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import ModeToggle from "./theme-toggle";
 
 export function NavBar() {
   return (
@@ -28,9 +27,7 @@ export function NavBar() {
           <SheetTrigger className="min-[825px]:hidden p-2 transition">
             <MenuIcon />
           </SheetTrigger>
-          <div className="min-[825px]:hidden flex  justify-end w-full">
-            <ModeToggle />
-          </div>
+    
           <SheetContent side="left">
             <SheetHeader>
               <SheetTitle>exact.</SheetTitle>
@@ -98,7 +95,6 @@ export function NavBar() {
           <Link href="#testimonial">
             <Button variant="ghost">Testimonial</Button>
           </Link>
-          <ModeToggle />
         </div>
       </div>
     </div>

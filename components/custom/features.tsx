@@ -7,93 +7,86 @@ import Balancer from "react-wrap-balancer";
 // UI component imports
 import { Section, Container } from "@/components/craft";
 
+// BentoGrid imports
+import { BentoCard, BentoGrid } from "../magicui/bento-grid";
+
 // Icon imports
-import { Coins, ArrowRight } from "lucide-react";
-import { JSX } from "react";
+import {
+  BellIcon,
+  CalendarIcon,
+  FileTextIcon,
+  GlobeIcon,
+  InputIcon,
+} from "@radix-ui/react-icons";
 
-type FeatureText = {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-  href?: string;
-  cta?: string;
-};
-
-const featureText: FeatureText[] = [
+// Define features for BentoGrid
+const features = [
   {
-    icon: <Coins className="h-6 w-6" />,
-    title: "Lorem Ipsum",
+    Icon: FileTextIcon,
+    name: "Save your files",
+    description: "We automatically save your files as you type.",
     href: "/",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    cta: "Learn More",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
-    title: "Lorem Ipsum",
+    Icon: InputIcon,
+    name: "Full text search",
+    description: "Search through all your files in one place.",
     href: "/",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    cta: "Learn More",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
-    title: "Lorem Ipsum",
+    Icon: GlobeIcon,
+    name: "Multilingual",
+    description: "Supports 100+ languages and counting.",
     href: "/",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    cta: "Learn More",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
-    icon: <Coins className="h-6 w-6" />,
-    title: "Lorem Ipsum",
+    Icon: CalendarIcon,
+    name: "Calendar",
+    description: "Use the calendar to filter your files by date.",
     href: "/",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    Icon: BellIcon,
+    name: "Notifications",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    cta: "Learn More",
+      "Get notified when someone shares a file or mentions you in a comment.",
+    href: "/",
+    cta: "Learn more",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
   },
 ];
 
 const Feature = () => {
   return (
-    <Section id="features" className="mt-32 border-b max-h-max">
+    <Section id="features" className="mt-52 border-b max-h-max">
       <Container className="not-prose">
         <div className="flex flex-col gap-6">
           <h2 className="text-5xl text-center !my-0">Features</h2>
-{/* 
-          <h3 className="text-4xl">
-            <Balancer>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </Balancer>
-          </h3> */}
           <h4 className="text-2xl font-light text-center opacity-70">
             <Balancer>
               Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
             </Balancer>
           </h4>
 
-          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-4">
-            {featureText.map(
-              ({ icon, title, description, href, cta }, index) => (
-                <Link
-                  href={`${href}`}
-                  className="flex flex-col justify-between gap-6 rounded-lg border p-6 transition-all hover:-mt-2 hover:mb-2"
-                  key={index}
-                >
-                  <div className="grid gap-4">
-                    {icon}
-                    <h4 className="text-xl text-primary">{title}</h4>
-                    <p className="text-base opacity-75">{description}</p>
-                  </div>
-                  {cta && (
-                    <div className="flex h-fit items-center text-sm font-semibold">
-                      <p>{cta}</p> <ArrowRight className="ml-2 h-4 w-4" />
-                    </div>
-                  )}
-                </Link>
-              )
-            )}
-          </div>
+          {/* BentoGrid Replacing Previous Grid */}
+          <BentoGrid className="lg:grid-rows-3">
+            {features.map((feature) => (
+              <BentoCard key={feature.name} {...feature} />
+            ))}
+          </BentoGrid>
         </div>
       </Container>
     </Section>
