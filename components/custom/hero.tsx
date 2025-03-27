@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import Balancer from "react-wrap-balancer"
-import { ArrowRightIcon } from "lucide-react"
-import { Section, Container } from "@/components/craft"
-import { Button } from "@/components/ui/button"
-import ShinyText from "../ShinyText/ShinyText"
-import { cn } from "@/lib/utils"
-import { AnimatedShinyText } from "../magicui/animated-shiny-text"
-import hero from "@/public/dash-2.png"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import Balancer from "react-wrap-balancer";
+import { ArrowRightIcon } from "lucide-react";
+import { Section, Container } from "@/components/craft";
+import { Button } from "@/components/ui/button";
+import ShinyText from "../ShinyText/ShinyText";
+import { cn } from "@/lib/utils";
+import { AnimatedShinyText } from "../magicui/animated-shiny-text";
+import hero from "@/public/dash-2.png";
+import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
 
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-}
+};
 
 const Hero = () => {
   return (
@@ -64,7 +65,7 @@ const Hero = () => {
             animate="visible"
             variants={fadeInUp}
             className={cn(
-              "group rounded-full border mb-4 border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+              "group rounded-full border mb-4 border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
             )}
           >
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
@@ -90,7 +91,10 @@ const Hero = () => {
             className="mt-4 font-normal text-base dark:text-neutral-300 max-w-lg text-center mx-auto 
               text-neutral-700 text-muted-foreground"
           >
-            <Balancer>Streamline your exam preparation process with our intelligent question paper generator.</Balancer>
+            <Balancer>
+              Streamline your exam preparation process with our intelligent
+              question paper generator.
+            </Balancer>
           </motion.h3>
 
           <motion.div
@@ -99,25 +103,7 @@ const Hero = () => {
             variants={fadeInUp}
             className="not-prose mt-6 flex gap-4 md:mt-12"
           >
-            <Button
-              variant={"default"}
-              effect="expandIcon"
-              icon={ArrowRightIcon}
-              iconPlacement="right"
-              className="rounded-xl h-full text-sm"
-            >
-              Get Started
-            </Button>
-            <Button asChild variant={"outline"} className="rounded-xl h-full text-sm">
-              <Link href="/">
-                <ShinyText
-                  text="Request a Demo"
-                  disabled={false}
-                  speed={3}
-                  className="dark:text-neutral-400 text-slate-950"
-                />
-              </Link>
-            </Button>
+            <InteractiveHoverButton className="dark:bg-blue-600 border-none">See it in Action</InteractiveHoverButton>
           </motion.div>
         </div>
 
@@ -140,8 +126,7 @@ const Hero = () => {
         </motion.div>
       </Container>
     </Section>
-  )
-}
+  );
+};
 
-export default Hero
-
+export default Hero;

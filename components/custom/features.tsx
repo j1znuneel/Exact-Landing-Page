@@ -55,7 +55,7 @@ const features = [
     Icon: GlobeIcon,
     name: "Admin Functionalities",
     description:
-      "Manage students, courses, and academic data with an intuitive admin panel.",
+      "Manage students, courses, faculties and academic datas like CO's and PO's with an intuitive admin panel.",
     href: "/",
     background: (
       <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +79,7 @@ const features = [
     background: (
       <div className="absolute inset-0 flex items-center justify-center">
         <Image
-          src="/evaluation.png"
+          src="/teacher.jpg"
           alt="Student Evaluation"
           layout="fill"
           objectFit="cover"
@@ -99,7 +99,9 @@ const Feature = () => {
           <h2 className="text-5xl text-center !my-0">Features</h2>
           <h4 className="text-2xl font-light text-center opacity-70">
             <Balancer>
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+              Empowering educators with seamless tools – from AI-driven question
+              generation to effortless student management. Everything you need,
+              all in one place!
             </Balancer>
           </h4>
 

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 import HeroSection from "@/components/custom/hero";
-import PricingSection from "@/components/custom/pricing";
+import { Pricing } from "@/components/custom/pricing";
 import Hero from "@/components/custom/hero";
 import { NavBar } from "@/components/custom/navbar";
 import FAQ from "@/components/custom/faq";
@@ -20,7 +20,7 @@ const LandingPage = () => {
       <Feature />
       <ImageComparisonComponent />
       <FAQ />
-      <PricingSection />
+      <Pricing />
       <Testimonial />
       <CTA />
       <Footer />
