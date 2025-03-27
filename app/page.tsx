@@ -8,9 +8,9 @@ import { NavBar } from "@/components/custom/navbar";
 import FAQ from "@/components/custom/faq";
 import CTA from "@/components/custom/cta";
 import Footer from "@/components/custom/footer";
-import { ImageComparisonComponent } from "@/components/custom/spring-img-comparison";
 import Testimonial from "@/components/custom/testimonial";
 import Feature from "@/components/custom/features";
+import { ImageComparisonComponent } from "@/components/custom/comparison";
 
 const LandingPage = () => {
   return (
