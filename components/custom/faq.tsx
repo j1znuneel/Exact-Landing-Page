@@ -17,54 +17,64 @@ type FAQItem = {
 
 const content: FAQItem[] = [
   {
-    question: "Lorem ipsum dolor sit amet?",
+    question: "What is Exact and how does it work?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    link: "https://google.com",
+      "Exact is an advanced AI-powered platform that helps businesses streamline their operations through intelligent automation. Our system learns from your data and processes to provide accurate, real-time insights and automate routine tasks.",
   },
   {
-    question: "Ut enim ad minim veniam?",
+    question: "How secure is my data with Exact?",
     answer:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We take data security seriously. Exact employs enterprise-grade encryption, regular security audits, and complies with industry standards. Your data is stored in secure cloud infrastructure with multiple layers of protection.",
+    link: "/security",
   },
   {
-    question: "Duis aute irure dolor in reprehenderit?",
+    question: "What kind of support do you offer?",
     answer:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "We provide 24/7 customer support through multiple channels including live chat, email, and phone. Our dedicated support team ensures quick resolution of any issues you may encounter.",
   },
   {
-    question: "Excepteur sint occaecat cupidatat non proident?",
+    question: "Can I integrate Exact with my existing tools?",
     answer:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Yes, Exact offers seamless integration with popular business tools and platforms. We support APIs and webhooks for custom integrations, making it easy to connect with your existing workflow.",
+  },
+  {
+    question: "What are the pricing plans?",
+    answer:
+      "We offer flexible pricing plans tailored to businesses of all sizes. From startups to enterprises, our plans include different features and capabilities to meet your specific needs.",
+    link: "/pricing",
   },
 ];
 
 const FAQ = () => {
   return (
-    <Section id="faq">
-      <Container className="w-full">
-        <h3 className="text-5xl mb-3 !mt-0">Frequently Asked Questions</h3>
-        <h4 className="text-muted-foreground">
-          Can&apos;t find the answer you&apos;re looking for? Reach out to our
-          customer support team.
-        </h4>
-        <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
+    <Section id="faq" className="bg-slate-50 dark:bg-slate-900/50">
+      <Container className="w-full max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h3 className="text-4xl md:text-5xl font-bold mb-4 !mt-0 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Frequently Asked Questions</h3>
+          <h4 className="text-muted-foreground text-lg">
+            Can&apos;t find the answer you&apos;re looking for?{" "}
+            <a href="/contact" className="text-primary hover:underline">Contact our support team</a>.
+          </h4>
+        </div>
+        <div className="not-prose mt-4 flex flex-col gap-3 md:gap-4">
           {content.map((item, index) => (
-            <Accordion key={index} type="single" collapsible>
-              <AccordionItem value={item.question}>
-                <AccordionTrigger className="text-left">
+            <Accordion key={index} type="single" collapsible className="bg-white dark:bg-slate-800/50 rounded-lg shadow-sm">
+              <AccordionItem value={item.question} className="border-none px-4">
+                <AccordionTrigger className="text-left hover:no-underline py-4 text-lg">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base md:w-3/4">
-                  {item.answer}
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      className="mt-2 flex w-full items-center opacity-60 transition-all hover:opacity-100"
-                    >
-                      Learn more <ArrowUpRight className="ml-1" size="16" />
-                    </a>
-                  )}
+                <AccordionContent className="text-base text-muted-foreground pb-4">
+                  <div className="space-y-2">
+                    {item.answer}
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        className="mt-4 inline-flex items-center text-primary hover:text-primary/80 font-medium"
+                      >
+                        Learn more <ArrowUpRight className="ml-1" size="16" />
+                      </a>
+                    )}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

@@ -11,6 +11,7 @@ import Footer from "@/components/custom/footer";
 import Testimonial from "@/components/custom/testimonial";
 import Feature from "@/components/custom/features";
 import { ImageComparisonComponent } from "@/components/custom/comparison";
+import WorkflowSteps from "@/components/custom/workflow-steps";
 
 const LandingPage = () => {
   return (
@@ -18,6 +19,7 @@ const LandingPage = () => {
       <NavBar />
       <Hero />
       <Feature />
+      <WorkflowSteps />
       <ImageComparisonComponent />
       <FAQ />
       <Pricing />
