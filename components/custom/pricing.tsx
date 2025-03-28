@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export const Pricing = () => {
   return (
     <div
-      className="relative overflow-hidden bg-zinc-950 text-zinc-200 selection:bg-zinc-600"
+      className="relative overflow-hidden text-zinc-200 selection:bg-zinc-600"
     >
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-8">
         <div className="mb-12 space-y-3">

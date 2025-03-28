@@ -47,7 +47,7 @@ const content: FAQItem[] = [
 
 const FAQ = () => {
   return (
-    <Section id="faq" className="bg-slate-50 dark:bg-slate-900/50">
+    <Section id="faq" >
       <Container className="w-full max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h3 className="text-4xl md:text-5xl font-bold mb-4 !mt-0 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Frequently Asked Questions</h3>

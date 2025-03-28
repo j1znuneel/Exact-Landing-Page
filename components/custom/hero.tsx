@@ -21,7 +21,7 @@ const fadeInUp = {
 
 const Hero = () => {
   return (
-    <Section id="hero" className="relative pt-20 top-52">
+    <Section id="hero" className="relative md:pt-20 md:top-52">
       <Container className="py-0 flex flex-col min-h-lvh">
         {/* Light beam effect */}
         <div className="absolute left-0 right-0 overflow-hidden">
@@ -105,14 +105,12 @@ const Hero = () => {
           >
             <InteractiveHoverButton className="dark:bg-blue-600 border-none">See it in Action</InteractiveHoverButton>
           </motion.div>
-        </div>
-
-        {/* Image with slight fade-in animation */}
+          {/* Image with slight fade-in animation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative not-prose my-8 w-full overflow-hidden rounded-lg border md:rounded-xl z-10"
+          className="relative not-prose md:my-8 my-5 w-full overflow-hidden rounded-lg border md:rounded-xl z-10"
         >
           <Image
             className="relative z-10 w-full h-auto object-cover"
@@ -124,6 +122,9 @@ const Hero = () => {
             priority
           />
         </motion.div>
+        </div>
+
+        
       </Container>
     </Section>
   );
